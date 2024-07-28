@@ -10,9 +10,9 @@ const Header = () => {
         </div>
         <nav>
           <ul className="flex space-x-4 ">
-            <li className='hover:cursor-pointer'><Link to="home" smooth={true} duration={500}>Home</Link></li>
+            {/* <li className='hover:cursor-pointer'><Link to="home" smooth={true} duration={500}>Home</Link></li>
             <li className='hover:cursor-pointer'><Link to="aboutus" smooth={true} duration={500}>About Us</Link></li>
-            <li className='hover:cursor-pointer'><Link to="achievements" smooth={true} duration={500}>Achievements</Link></li>
+            <li className='hover:cursor-pointer'><Link to="achievements" smooth={true} duration={500}>Achievements</Link></li> */}
             <li className='hover:cursor-pointer'><Link to="contactus" smooth={true} duration={500}>Contact Us</Link></li>
           </ul>
         </nav>
