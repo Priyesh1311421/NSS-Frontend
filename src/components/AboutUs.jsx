@@ -45,15 +45,18 @@ const AboutUs = () => {
   return (
     <section id="about-us" className="min-h-screen bg-gray-300 p-8">
       <h2 className="text-3xl font-bold mb-4">About Us</h2>
-      <p className="text-gray-800 mb-4">Our aim is to [add your aim here].</p>
+    
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-4">
         {images.map((image, index) => (
-          <div key={index} className="flex flex-col justify-center items-center bg-white p-4 rounded-lg shadow-md">
-            <img src={image.src} alt={`About Us ${index + 1}`} className="w-full h-auto rounded-lg mb-4" />
+          <div key={index} className="flex flex-col justify-center items-center bg-white p-4 rounded-lg shadow-md ">
+            <img src={image.src} alt={`About Us ${index + 1}`} className="w-full h-auto rounded-lg mb-4 transform transition duration-500 hover:scale-110" />
             <h3 className="text-lg font-semibold">{image.title}</h3>
             <p className="text-gray-600">{image.description}</p>
           </div>
         ))}
+      </div>
+      <div>
+        <button><a href='https://heyzine.com/flip-book/a8cf612202.html#page/1'>Magzine</a></button>
       </div>
     </section>
   );

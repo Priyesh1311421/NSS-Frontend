@@ -8,7 +8,7 @@
 
 
 .slick-prev:before, .slick-next:before {
-color: blue; /* Change arrow color */
+color: gray; /* Change arrow color */
 }
 
 /* Add gap between images */

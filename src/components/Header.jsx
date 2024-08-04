@@ -1,24 +1,102 @@
-import React from 'react';
-import { Link } from 'react-scroll';
+import React, { useState } from 'react';
+import './Navbar.css';
+import { GiHamburgerMenu } from 'react-icons/gi';
+import { MdOutlineRestaurantMenu } from 'react-icons/md';
+import logo from '../assets/Logo.png';
+import { useNavigate } from 'react-router-dom';
 
-const Header = () => {
+const Navbar = () => {
+  const [toggle, setToggle] = useState(false);
+  const [activeLink, setActiveLink] = useState('/home'); // Default active link
+  const navigate = useNavigate();
+
+  const handleClick = (path) => {
+    setActiveLink(path);
+    navigate(path);
+    setToggle(false);
+  };
+
   return (
-    <header className="bg-gray-800 text-white p-4 w-full mb-[-65px]">
-      <div className="container mx-auto flex justify-between items-center">
-        <div className="logo">
-          <img src="/path-to-logo.png" alt="NSS NSUT Cell" className="h-10" />
-        </div>
-        <nav>
-          <ul className="flex space-x-4 ">
-            {/* <li className='hover:cursor-pointer'><Link to="home" smooth={true} duration={500}>Home</Link></li>
-            <li className='hover:cursor-pointer'><Link to="aboutus" smooth={true} duration={500}>About Us</Link></li>
-            <li className='hover:cursor-pointer'><Link to="achievements" smooth={true} duration={500}>Achievements</Link></li> */}
-            <li className='hover:cursor-pointer'><Link to="contactus" smooth={true} duration={500}>Contact Us</Link></li>
-          </ul>
-        </nav>
+    <nav className='app__navbar p-2'>
+      <div className='app__navbar-logo h-11 w-12 m-1'>
+        <img src={logo} alt='nss-logo' className='h-10 w-12' />
       </div>
-    </header>
+      <ul className='app__navbar-links'>
+        <li
+          className={`p__opensans ${activeLink === '/home' ? 'active' : ''}`}
+          onClick={() => handleClick('/home')}
+        >
+          Home
+        </li>
+        <li
+          className={`p__opensans ${activeLink === '/about' ? 'active' : ''}`}
+          onClick={() => handleClick('/about')}
+        >
+          About
+        </li>
+        <li
+          className={`p__opensans ${activeLink === '/gallery' ? 'active' : ''}`}
+          onClick={() => handleClick('/gallery')}
+        >
+          Gallery
+        </li>
+        <li
+          className={`p__opensans ${activeLink === '/notices' ? 'active' : ''}`}
+          onClick={() => handleClick('/notices')}
+        >
+          Notices
+        </li>
+      </ul>
+      <div className='app__navbar-smallscreen'>
+        <GiHamburgerMenu
+          color='black'
+          fontSize={27}
+          onClick={() => {
+            setToggle(true);
+          }}
+        />
+        {toggle && (
+          <div className='app__navbar-smallscreen_overlay flex__center slide-bottom'>
+            <div
+              size={27}
+              className='overlay__close font-extrabold'
+              onClick={() => {
+                setToggle(false);
+              }}
+            >
+              X
+            </div>
+            <ul className='app__navbar-smallscreen-links'>
+              <li
+                className={`p__opensans ${activeLink === '/home' ? 'active' : ''}`}
+                onClick={() => handleClick('/home')}
+              >
+                Home
+              </li>
+              <li
+                className={`p__opensans ${activeLink === '/about' ? 'active' : ''}`}
+                onClick={() => handleClick('/about')}
+              >
+                About
+              </li>
+              <li
+                className={`p__opensans ${activeLink === '/gallery' ? 'active' : ''}`}
+                onClick={() => handleClick('/gallery')}
+              >
+                Gallery
+              </li>
+              <li
+                className={`p__opensans ${activeLink === '/notices' ? 'active' : ''}`}
+                onClick={() => handleClick('/notices')}
+              >
+                Notices
+              </li>
+            </ul>
+          </div>
+        )}
+      </div>
+    </nav>
   );
 };
 
-export default Header;
+export default Navbar;

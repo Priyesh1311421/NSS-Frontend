@@ -1,26 +1,23 @@
 import React from 'react';
-import Header from './components/Header';
-import Home from './components/Home';
-import AboutUs from './components/AboutUs';
-import Achievements from './components/Achievements';
-import ContactUs from './components/ContactUs';
-import Trips from './components/Trips';
+import {BrowserRouter, Route, Routes} from 'react-router-dom'
+import HomePage from './Pages/Home';
+import Navbar from './components/Header';
 import Footer from './components/Footer';
-import UpcomingEvents from './components/UpcomingEvents';
+// import Gallery from './Pages/Gallery'
+
 
 function App() {
   return (
-    <div className="App">
-      <Header />
-      <main className="pt-16">
-        <Home />
-        <AboutUs />
-        <Achievements />
-        <UpcomingEvents/>
-        <ContactUs />
-        <Trips />
-      </main>
-      <Footer />
+    <div>
+      <BrowserRouter>
+      <Navbar/>
+      <Routes>
+        <Route exact path='/' element = {<HomePage/>} />
+        {/* <Route path='/Gallery' element = {<Gallery/>}/> */}
+        <Route path='/home' element = {<HomePage/>} />
+      </Routes>
+      </BrowserRouter>
+      <Footer/>
     </div>
   );
 }
