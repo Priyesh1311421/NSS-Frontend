@@ -3,7 +3,9 @@ import {BrowserRouter, Route, Routes} from 'react-router-dom'
 import HomePage from './Pages/Home';
 import Navbar from './components/Header';
 import Footer from './components/Footer';
-// import Gallery from './Pages/Gallery'
+import About from './Pages/About';
+import Gallery from './Pages/Gallery'
+import Notices from './Pages/Notices';
 
 
 function App() {
@@ -13,8 +15,11 @@ function App() {
       <Navbar/>
       <Routes>
         <Route exact path='/' element = {<HomePage/>} />
-        {/* <Route path='/Gallery' element = {<Gallery/>}/> */}
+        <Route path='/Gallery' element = {<Gallery/>}/>
         <Route path='/home' element = {<HomePage/>} />
+        <Route path='/about' element = {<About/>}/>
+        <Route path='/notices' element = {<Notices/>} />
+
       </Routes>
       </BrowserRouter>
       <Footer/>
