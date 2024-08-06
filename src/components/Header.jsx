@@ -1,14 +1,20 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './Navbar.css';
 import { GiHamburgerMenu } from 'react-icons/gi';
 import { MdOutlineRestaurantMenu } from 'react-icons/md';
 import logo from '../assets/Logo.png';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 
 const Navbar = () => {
   const [toggle, setToggle] = useState(false);
   const [activeLink, setActiveLink] = useState('/home'); // Default active link
   const navigate = useNavigate();
+  const location = useLocation();
+
+  useEffect(() => {
+    // Set active link based on current path
+    setActiveLink(location.pathname);
+  }, [location.pathname]);
 
   const handleClick = (path) => {
     setActiveLink(path);

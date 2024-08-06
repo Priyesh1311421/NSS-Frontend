@@ -6,6 +6,7 @@ import image7 from '../assets/image7.jpg';
 import image1 from '../assets/image1.jpg';
 import image12 from '../assets/image12.jpg';
 import image13 from '../assets/image13.jpg';
+import Desk from './Desk';
 
 const AboutUs = () => {
   // Images array with details
@@ -43,8 +44,8 @@ const AboutUs = () => {
   ];
 
   return (
-    <section id="about-us" className="min-h-screen bg-gray-300 p-8">
-      <h2 className="text-3xl font-bold mb-4">About Us</h2>
+    <section id="recent events" className="min-h-screen bg-gray-300 p-8">
+      <h2 className="text-3xl font-bold mb-4">Recent Events</h2>
     
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-4">
         {images.map((image, index) => (
@@ -54,9 +55,6 @@ const AboutUs = () => {
             <p className="text-gray-600">{image.description}</p>
           </div>
         ))}
-      </div>
-      <div>
-        <button><a href='https://heyzine.com/flip-book/a8cf612202.html#page/1'>Magzine</a></button>
       </div>
     </section>
   );

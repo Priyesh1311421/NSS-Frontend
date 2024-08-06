@@ -14,15 +14,15 @@ function App() {
       <BrowserRouter>
       <Navbar/>
       <Routes>
-        <Route exact path='/' element = {<HomePage/>}/>
-        <Route path='/Gallery' element = {<Gallery/>}/>
+        <Route path='/' element = {<HomePage/>}/>
+        <Route path='/gallery' element = {<Gallery/>}/>
         <Route path='/home' element = {<HomePage/>} />
         <Route path='/about' element = {<About/>}/>
         <Route path='/notices' element = {<Notices/>} />
-
       </Routes>
-      </BrowserRouter>
       <Footer/>
+      </BrowserRouter>
+      
     </div>
   );
 }

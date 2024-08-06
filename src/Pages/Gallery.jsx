@@ -1,9 +1,11 @@
 import React from 'react'
+import ImageGallery from '../components/ImageGallery'
 
 const Gallery = () => {
   return (
-    <div>Gallery</div>
-  )
+    <>
+    <ImageGallery/>
+    </>)
 }
 
 export default Gallery
