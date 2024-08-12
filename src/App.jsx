@@ -6,7 +6,6 @@ import Footer from './components/Footer';
 import About from './Pages/About';
 import Gallery from './Pages/Gallery';
 import Notices from './Pages/Notices';
-import NotFound from './Pages/NotFound'; // Ensure you have a NotFound component
 
 function App() {
   return (
@@ -18,7 +17,6 @@ function App() {
           <Route path='/' element={<HomePage />} />
           <Route path='/about' element={<About />} />
           <Route path='/notices' element={<Notices />} />
-          <Route path='*' element={<NotFound />} /> {/* Catch-all route */}
         </Routes>
         <Footer />
       </BrowserRouter>
