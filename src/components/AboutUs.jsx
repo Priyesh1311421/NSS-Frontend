@@ -1,61 +1,53 @@
-// src/components/AboutUs.js
-import React from 'react';
-import image9 from '../assets/image9.jpg';
-import image10 from '../assets/image10.jpg';
-import image7 from '../assets/image7.jpg';
-import image1 from '../assets/image1.jpg';
-import image12 from '../assets/image12.jpg';
-import image13 from '../assets/image13.jpg';
-import Desk from './Desk';
+import React, { useEffect, useState } from 'react';
+import Desk from './Desk'; // Ensure this import is correct
 
 const AboutUs = () => {
-  // Images array with details
-  const images = [
-    {
-      src: image9,
-      title: 'Event 1',
-      description: 'Description for event 1.'
-    },
-    {
-      src: image10,
-      title: 'Event 2',
-      description: 'Description for event 2.'
-    },
-    {
-      src: image7,
-      title: 'Event 3',
-      description: 'Description for event 3.'
-    },
-    {
-      src: image1,
-      title: 'Event 4',
-      description: 'Description for event 4.'
-    },
-    {
-      src: image12,
-      title: 'Event 5',
-      description: 'Description for event 5.'
-    },
-    {
-      src: image13,
-      title: 'Event 6',
-      description: 'Description for event 6.'
-    },
-  ];
+  const [events, setEvents] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    fetch('https://script.google.com/macros/s/AKfycbwsmNB6kEUZ-zyWbGSAdFvIjPZjEb3-tCs9AHGMxOOj9RvkkH1-5SlFv8XSPGf9Bx4Ouw/exec')
+      .then(response => {
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+        return response.json();
+      })
+      .then(data => {
+        setEvents(data.data); // Adjust as per the actual structure of the response
+        setLoading(false);
+      })
+      .catch(error => {
+        console.error('Fetching events failed: ', error);
+        setLoading(false);
+      });
+  }, []);
 
   return (
-    <section id="recent events" className="min-h-screen bg-gray-300 p-8">
+    <section id="recent-events" className="bg-gray-300 p-8">
       <h2 className="text-3xl font-bold mb-4">Recent Events</h2>
     
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-4">
-        {images.map((image, index) => (
-          <div key={index} className="flex flex-col justify-center items-center bg-white p-4 rounded-lg shadow-md ">
-            <img src={image.src} alt={`About Us ${index + 1}`} className="w-full h-auto rounded-lg mb-4 transform transition duration-500 hover:scale-110" />
-            <h3 className="text-lg font-semibold">{image.title}</h3>
-            <p className="text-gray-600">{image.description}</p>
-          </div>
-        ))}
-      </div>
+      {loading ? (
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-4">
+          {Array(6).fill(null).map((_, index) => (
+            <div key={index} className="flex flex-col justify-center items-center bg-white p-4 rounded-lg shadow-md">
+              <div className="w-full h-64 bg-gray-300 animate-pulse rounded-lg mb-4"></div>
+              <div className="w-3/4 h-6 bg-gray-300 animate-pulse rounded-md mb-2"></div>
+              <div className="w-3/4 h-4 bg-gray-200 animate-pulse rounded-md"></div>
+            </div>
+          ))}
+        </div>
+      ) : (
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-4">
+          {events.slice(10,16).map((event, index) => (
+            <div key={index} className="flex flex-col justify-center items-center bg-white p-4 rounded-lg shadow-md">
+              <img src={event.ImageUrl} alt={`About Us ${index + 1}`} className="w-full h-auto rounded-lg mb-4 transform transition duration-500 hover:scale-110" />
+              <h3 className="text-lg font-semibold">{event.Heading}</h3>
+              <p className="text-gray-600">{event.Description}</p>
+            </div>
+          ))}
+        </div>
+      )}
     </section>
   );
 };

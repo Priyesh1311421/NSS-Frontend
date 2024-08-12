@@ -2,11 +2,10 @@ import React from 'react';
 import Home from '../components/Home';
 import AboutUs from '../components/AboutUs';
 import Achievements from '../components/Achievements';
-import Trips from '../components/Trips';
 import UpcomingEvents from '../components/UpcomingEvents';
 import Video from '../components/Video';
-import Desk from '../components/Desk';
 import VC from '../components/VC';
+import Coordinator from '../components/Coordinator';
 
 function HomePage() {
   return (
@@ -15,6 +14,7 @@ function HomePage() {
         <UpcomingEvents/>
         <AboutUs />
         <VC/>
+        <Coordinator/>
         <Video/>
         <Achievements />
     </div>

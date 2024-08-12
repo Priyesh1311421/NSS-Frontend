@@ -8,10 +8,10 @@
 
 
 .slick-prev:before, .slick-next:before {
-color: gray; /* Change arrow color */
+color: rgb(32, 30, 30); /* Change arrow color */
 }
 
 /* Add gap between images */
 .carousel-slide img {
-padding: 0 10px; /* Adjust padding for the desired gap */
+padding: 0 10px;
 }

@@ -1,36 +1,78 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import dayjs from 'dayjs';
+import { useNavigate } from 'react-router-dom';
 
 const UpcomingEvents = () => {
-  const events = [
-    {
-      title: 'Blood Donation Camp',
-      date: 'August 15, 2024',
-      description: 'Join us for a blood donation camp to save lives.'
-    },
-    {
-      title: 'Cleanliness Drive',
-      date: 'September 10, 2024',
-      description: 'Participate in our cleanliness drive to keep our surroundings clean.'
-    },
-    {
-      title: 'Tree Plantation',
-      date: 'October 5, 2024',
-      description: 'Help us plant trees and make our city greener.'
-    }
-  ];
+  const [events, setEvents] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    fetch('https://script.google.com/macros/s/AKfycbwsmNB6kEUZ-zyWbGSAdFvIjPZjEb3-tCs9AHGMxOOj9RvkkH1-5SlFv8XSPGf9Bx4Ouw/exec')
+      .then(response => {
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+        return response.json();
+      })
+      .then(data => {
+        setEvents(data.data);
+        setLoading(false);
+      })
+      .catch(error => {
+        console.error('Fetching events failed: ', error);
+        setLoading(false);
+      });
+  }, []);
 
   return (
     <section id="upcoming-events" className="h-auto bg-gray-300 p-8">
       <h2 className="text-3xl font-bold mb-4">Upcoming Events</h2>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        {events.map((event, index) => (
-          <div key={index} className="bg-white p-4 rounded-lg shadow-md">
-            <h3 className="text-xl font-semibold mb-2">{event.title}</h3>
-            <p className="text-gray-600 mb-2">{event.date}</p>
-            <p className="text-gray-800">{event.description}</p>
-          </div>
-        ))}
-      </div>
+      
+      {loading ? (
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {Array(3).fill('').map((_, index) => (
+            <div key={index} className="bg-white p-4 rounded-lg shadow-md animate-pulse">
+              <div className="flex justify-between mb-4">
+                <div className="flex-1 ml-4">
+                  <div className="h-6 bg-gray-300 rounded mb-2"></div>
+                  <div className="h-4 bg-gray-300 rounded mb-2"></div>
+                  <div className="h-4 bg-gray-300 rounded"></div>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      ) : (
+        <>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {events.slice(1, 4).map((event, index) => (
+            <div key={index} className="bg-white p-4 rounded-lg shadow-md">
+              <div className='flex justify-between'>
+                {/* Uncomment and use the below code if ImageUrl is available in your data */}
+                {/* {event.ImageUrl && (
+                  <img
+                    src={event.ImageUrl}
+                    alt={event.Heading}
+                    className="w-28 h-28 object-cover rounded-md mb-4"
+                  />
+                )} */}
+                <div>
+                  <h3 className="text-xl font-semibold mb-2">{event.Heading}</h3>
+                  <p className="text-gray-600 mb-2">
+                    {event.Date ? dayjs(event.Date).format('MMMM D, YYYY') : 'No date available'}
+                  </p>
+                </div>
+              </div>
+              <p className="text-gray-800">{event.Description || 'No description available'}</p>
+            </div>
+          ))}
+        </div>
+        <div className='flex justify-end pt-2'>
+            <button onClick={()=>{navigate('/notices')}} className=' bg-gray-800 rounded-lg p-2 text-white'>More</button>
+        </div>
+        </>
+      )}
     </section>
   );
 };

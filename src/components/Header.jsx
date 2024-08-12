@@ -1,18 +1,16 @@
 import React, { useState, useEffect } from 'react';
 import './Navbar.css';
 import { GiHamburgerMenu } from 'react-icons/gi';
-import { MdOutlineRestaurantMenu } from 'react-icons/md';
 import logo from '../assets/Logo.png';
 import { useNavigate, useLocation } from 'react-router-dom';
 
 const Navbar = () => {
   const [toggle, setToggle] = useState(false);
-  const [activeLink, setActiveLink] = useState('/home'); // Default active link
+  const [activeLink, setActiveLink] = useState('/home'); 
   const navigate = useNavigate();
   const location = useLocation();
 
   useEffect(() => {
-    // Set active link based on current path
     setActiveLink(location.pathname);
   }, [location.pathname]);
 
@@ -29,8 +27,8 @@ const Navbar = () => {
       </div>
       <ul className='app__navbar-links'>
         <li
-          className={`p__opensans ${activeLink === '/home' ? 'active' : ''}`}
-          onClick={() => handleClick('/home')}
+          className={`p__opensans ${activeLink === '/'? 'active' : ''}`}
+          onClick={() => handleClick('/')}
         >
           Home
         </li>
@@ -74,8 +72,8 @@ const Navbar = () => {
             </div>
             <ul className='app__navbar-smallscreen-links'>
               <li
-                className={`p__opensans ${activeLink === '/home' ? 'active' : ''}`}
-                onClick={() => handleClick('/home')}
+                className={`p__opensans ${activeLink === '/' ? 'active' : ''}`}
+                onClick={() => handleClick('/')}
               >
                 Home
               </li>

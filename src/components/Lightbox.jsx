@@ -19,7 +19,7 @@ const Lightbox = ({ image, onClose }) => {
         <img 
           src={image} 
           alt="Lightbox" 
-          className="lg:max-w-[500px] lg:max-h-[500px] object-contain"
+          className="lg:max-w-[500px] lg:max-h-[500px] object-contain rounded-md"
         />
       </div>
     </div>
