@@ -23,7 +23,6 @@ The NSS NSUT website serves as the online presence of the NSS (National Service 
 - **About Us**: Describes the aim and objectives of the NSS NSUT Cell.
 - **Achievements**: Showcases the accomplishments of the NSS NSUT Cell with an image carousel.
 - **Events**: Displays upcoming events and activities organized by the NSS NSUT.
-- **Contact Us**: Provides contact information and a form for visitors to reach out to the organization.
 - **Footer**: Includes links to social media profiles and other relevant information.
 - **Responsive Design**: The website is fully responsive and adapts to different screen sizes.
 
@@ -31,6 +30,7 @@ The NSS NSUT website serves as the online presence of the NSS (National Service 
 
 - **React**: JavaScript library for building user interfaces.
 - **Tailwind CSS**: Utility-first CSS framework for styling.
+- **Google Sheets**: Used as the backend for storing and managing data.
 - **Vercel**: Hosting platform for deploying the website.
 
 ## Setup and Installation
