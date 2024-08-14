@@ -3,7 +3,7 @@ import React from 'react';
 const Lightbox = ({ image, onClose }) => {
   return (
     <div 
-      className="fixed inset-0 bg-black bg-opacity-80 flex justify-center items-center z-50" 
+      className="fixed top-[-1.3rem] lg:top-[-1.99rem] left-0 w-full h-full bg-opacity-30 bg-gray-700 backdrop-blur-lg flex justify-center items-center z-[100]" 
       onClick={onClose}
     >
       <div 

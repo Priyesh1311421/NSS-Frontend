@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import Lightbox from './Lightbox';
 
-import image31 from '../assets/image31.jpg'
+import image31 from '../assets/image31.jpg';
 import image3 from '../assets/image3.jpg';
-import image1 from '../assets/image2.jpg'
+import image1 from '../assets/image2.jpg';
 import image9 from '../assets/image9.jpg';
 import image10 from '../assets/image10.jpg';
 import image14 from '../assets/image14.jpg';
@@ -63,7 +63,6 @@ const ImageGallery = () => {
             {!loadedImages[index] && (
               <div className="relative">
                 <div className="bg-gray-300 animate-pulse rounded-md w-full h-64 mb-4" />
-                {/* <div className="bg-gray-200 animate-pulse rounded-md h-4 w-3/4 mb-2" /> */}
               </div>
             )}
             <img
@@ -71,6 +70,7 @@ const ImageGallery = () => {
               alt={`Gallery ${index}`}
               onClick={() => openLightbox(image)}
               className={`w-auto h-auto object-cover cursor-pointer rounded-md transform transition duration-500 hover:scale-105 ${loadedImages[index] ? 'block' : 'hidden'}`}
+              loading="lazy" // Lazy load images
             />
           </div>
         ))}
