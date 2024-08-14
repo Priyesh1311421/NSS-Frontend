@@ -4,7 +4,7 @@ const OurMission = () => {
   return (
     <div className="bg-gray-300 p-8 flex flex-col" >
         <div className='flex justify-center'>
-            <div className='font-bold text-5xl'>
+            <div className='font-bold text-[2.9rem]'>
              Our Mission
             </div>
         </div>
