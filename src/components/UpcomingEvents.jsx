@@ -8,7 +8,7 @@ const UpcomingEvents = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    fetch('https://script.google.com/macros/s/AKfycbwsmNB6kEUZ-zyWbGSAdFvIjPZjEb3-tCs9AHGMxOOj9RvkkH1-5SlFv8XSPGf9Bx4Ouw/exec')
+    fetch('https://script.googleusercontent.com/a/macros/nsut.ac.in/echo?user_content_key=rBsKIhaAos5a0uHcLa_S6ltUTqw_z4DNvQVQLV19h8LqtUqvnx6E2l460m-p6LIvDWfjlpKGguu_uJimVb0PrqJMFZfUGIThm5_BxDlH2jW0nuo2oDemN9CCS2h10ox_nRPgeZU6HP9FvU40f20LNCHaYKxUla6AaJpwTgVCNrY50xA_kv9yT--ORMvEdnIgEnkYkK3-rFWhGtSyX0zwrar47cI7VdkvHxUl575noFvMSWCNI_MJO67qmGuB6ZGyXMuqa_jo9BU&lib=Mj7t-TBtd-sTE8l9itWmZHIMmsRg3-2UW')
       .then(response => {
         if (!response.ok) {
           throw new Error('Network response was not ok');
