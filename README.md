@@ -94,4 +94,4 @@ Contributions are welcome! If you'd like to contribute to the project, please fo
 If you have any questions, feel free to reach out:
 
 - **Email**: [priyeshchaudhari35@gmail.com](mailto:priyeshchaudhari35@gmail.com)
-- **Website**: [nss-nsut-two.vercel.app](https://nss-nsut-two.vercel.app/)
+- **Website**: [nss-nsut-pi.vercel.app](https://nss-nsut-pi.vercel.app/)
