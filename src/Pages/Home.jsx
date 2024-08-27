@@ -11,7 +11,7 @@ function HomePage() {
   return (
     <div className="Home">
         <Home />
-        <UpcomingEvents/>
+        {/* <UpcomingEvents/> */}
         <AboutUs />
         <VC/>
         <Coordinator/>
